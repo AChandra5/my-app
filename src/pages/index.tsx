@@ -1,29 +1,31 @@
-import Details from '@/components/Details'
-import NavBar from '@/components/NavBar'
-import { Button } from '@mui/material'
-import React, { useState } from 'react'
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import CustomButton from '../components/CustomButton'
-import FormModal from '@/components/FormModal';
+import Details from '@/components/Details';
+import NavBar from '@/components/NavBar';
+import Projects from '@/components/Projects';
+import Footer from '@/components/Footer';
+import Image from 'next/image';
+import React, { useState } from 'react';
 
 function Main() {
-  const [openModal, setOpenModal] = useState(false);
-  const [loading, setLoading] = useState(false)
-  if(loading) {
+  const [loading, setLoading] = useState(false);
+
+  if (loading) {
     return (
       <div className='loader'>
-        <img src = {'/assets/Loading.gif'}  alt = "loader"></img>
-        <div style={{color: 'gray'}}>Loading...</div>
+        <Image src='/assets/Loading.gif' alt='loader' width={120} height={120} />
+        <div>Loading...</div>
       </div>
-    )
+    );
   }
+
   return (
-    <div>
-        <NavBar />
-        <Details />
-        <FormModal open={openModal} handleClose={()=>setOpenModal(false)} />
+    <div className='page-shell'>
+      <div className='ambient-glow' />
+      <NavBar />
+      <Details />
+      <Projects />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default Main
+export default Main;

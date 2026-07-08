@@ -1,54 +1,55 @@
-/* eslint-disable react/no-unescaped-entities */
-import { Button, keyframes } from "@mui/material";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { Button, keyframes } from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const glowAnimation = keyframes`
- 0% {
-    box-shadow: 0 0 20px rgba(237, 237, 237, 0.3);
+  0% {
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
   }
   50% {
-    box-shadow: 0 0 40px rgba(237, 237, 237, 0.3);
+    box-shadow: 0 0 34px rgba(236, 72, 153, 0.4);
   }
   100% {
-    box-shadow: 0 0 20px rgba(237, 237, 237, 0);
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
   }
-`
+`;
 
-const CustomButton = ({handleOnClick}: any) => {
+const CustomButton = ({ handleOnClick }: any) => {
   return (
     <Button
-      variant="contained"
+      variant='contained'
       sx={{
-        padding: "15px",
-        fontWeight: "500",
-        fontSize: "25px",
-        margin: "80px 0px 0px 0px",
-        // boxShadow: "0 0 20px rgba(0, 255, 0, 0.6)",
-        // transition: "box-shadow 0.3s ease",
+        padding: '14px 26px',
+        fontWeight: '600',
+        fontSize: '18px',
         animation: `${glowAnimation} 4s ease-in-out infinite`,
-        background: '#444444',
+        background: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
         textTransform: 'none',
-        fontFamily: 'monospace',
+        fontFamily: 'var(--font-mono, monospace)',
         borderRadius: '10px',
-        "&:hover": {
-            background: '#EDEDED',
-            color: '#000000'
+        transition: 'transform 0.25s ease, background 0.25s ease',
+        '&:hover': {
+          background: 'linear-gradient(135deg, #7c3aed, #db2777)',
+          color: '#ffffff',
+          transform: 'translateY(-2px)',
         },
-        "@media (max-width: 600px)": {
-          width: '50%',
-          fontSize: "15px",
-          padding: "10px",
-          background: '#444444'
-        }
+        '@media (max-width: 600px)': {
+          fontSize: '15px',
+          padding: '12px 20px',
+        },
       }}
-      endIcon={<ArrowForwardIosIcon sx = {{
-        "@media (max-width: 600px)": {
-          display: 'none'
-        }
-      }}/>}
-    onClick={handleOnClick}
+      endIcon={
+        <ArrowForwardIosIcon
+          sx={{
+            fontSize: '0.85rem',
+            '@media (max-width: 600px)': {
+              display: 'none',
+            },
+          }}
+        />
+      }
+      onClick={handleOnClick}
     >
-      Let's get started
+      Let&apos;s get started
     </Button>
   );
 };
